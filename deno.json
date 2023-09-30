@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "dev": "deno run --watch -A ./src/main.ts",
+    "login": "deno run --allow-write --allow-net ./scripts/login.ts"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.203.0/"
+  },
+  "nodeModulesDir": false
+}

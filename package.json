@@ -1,0 +1,19 @@
+{
+  "name": "sushi_bot",
+  "module": "main.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "marked": "^9.0.3",
+    "matrix-js-sdk": "^28.2.0"
+  },
+  "scripts": {
+    "dev": "bun run --watch src/main.ts",
+    "login": "bun run scripts/login.ts"
+  }
+}
