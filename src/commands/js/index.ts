@@ -26,7 +26,8 @@ const js = (async (opts) => {
     deno: {
       permissions: {
 
-      }
+      },
+      namespace: true
     },
     type: 'module',
   })
