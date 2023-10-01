@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --watch -A ./src/main.ts",
+    "dev": "deno run --watch -A --unstable ./src/main.ts",
     "login": "deno run --allow-write --allow-net ./scripts/login.ts"
   },
   "imports": {
