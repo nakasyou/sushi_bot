@@ -13,7 +13,7 @@ const makequote = (async (opts) => {
   const profileInfo = await client.getProfileInfo(opts.replyData.target)
 
   const avatarUrl = client.mxcUrlToHttp(profileInfo.avatar_url, 600, 600) // アバターのHTTP URL
-  const avatar = loadImage(avatarUrl)
+  const avatar = await loadImage(avatarUrl)
 
   // 背景の描画
   ctx.fillStyle = "#000"
