@@ -4,7 +4,7 @@ import { createCanvas, loadImage, GlobalFonts } from '@napi-rs/canvas'
 const makequote = (async (opts) => {
   const { client } = opts
   if (!opts.replyData) {
-    opts.reply(opts.replyData.content.body)
+    opts.reply('リプライで使ってね')
   }
   
   const canvas = createCanvas(1200, 600)
