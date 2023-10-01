@@ -56,7 +56,7 @@ async function main () {
     }
   });
   // @ts-expect-error
-  client.on("Room.timeline", (event: sdk.MatrixEvent, room, toStartOfTimeline) => {
+  client.on("Room.timeline", async (event: sdk.MatrixEvent, room, toStartOfTimeline) => {
     if (event.sender?.userId === "@nakasyou_bot:matrix.org") {
       return;
     }
