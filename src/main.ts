@@ -6,6 +6,7 @@ import time from './commands/time.ts'
 import wp from './commands/wp.ts'
 import echo from './commands/echo.ts'
 import js from './commands/js/index.ts'
+import makequote from './commands/makequote/index.ts'
 
 export interface CommandOptions {
   reply(text: string, opts?: sdk.MatrixEvent): Promise<void>
@@ -95,7 +96,8 @@ async function main () {
       time,
       wp,
       echo,
-      js
+      js,
+      makequote
     }
     if (!(command in commands)) {
       return // コマンドが存在しない
