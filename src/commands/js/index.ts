@@ -21,30 +21,30 @@ const js = (async (opts) => {
     type: 'text/javascript'
   })
   const codeUrl = URL.createObjectURL(blobCode)
-  
-  const worker = new Worker(codeUrl, {
-    deno: {
-      permissions: {
+  try {
+    const worker = new Worker(codeUrl, {
+      deno: {
+        permissions: {
 
+        },
+        namespace: true
       },
-      namespace: true
-    },
-    type: 'module',
-  })
-  worker.onmessage = (evt) => {
-    // End
-    worker.terminate()
-    opts.reply(`実行が完了しました！
+      type: 'module',
+    })
+    worker.onmessage = (evt) => {
+      // End
+      worker.terminate()
+      opts.reply(`実行が完了しました！
 Result:
 \`\`\`json
 ${evt.data}
 \`\`\``)
-  }
-  worker.onerror = (evt) => {
-    // エラー
-    console.log(evt)
-    worker.terminate()
-    opts.reply(`
+    }
+    worker.onerror = (evt) => {
+      // エラー
+      console.log(evt)
+      worker.terminate()
+      opts.reply(`
 エラーが発生しました。
 \`${evt.message} ( line ${evt.lineno - 1}, col ${evt.colno})\`
 \`\`\`javascript
@@ -53,6 +53,9 @@ ${code.split('\n')[evt.lineno - 1]}
 ${[...Array(evt.colno)].map(() => '').join(' ')}^ここ
 ${evt.lineno < code.split('\n').length ? code.split('\n')[evt.lineno] : ''}
 \`\`\``)
+    }
+  } catch (error) {
+    console.warn(error)
   }
 }) satisfies Command
 
