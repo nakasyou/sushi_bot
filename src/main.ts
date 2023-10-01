@@ -1,6 +1,6 @@
 import * as sdk from "matrix-js-sdk";
 import * as marked from 'marked'
-
+import { load } from 'https://deno.land/std@0.203.0/dotenv/mod.ts'
 import omikuji from './commands/omikuji.ts'
 import time from './commands/time.ts'
 import wp from './commands/wp.ts'
@@ -15,7 +15,7 @@ export interface CommandOptions {
 export type Command = (opts: CommandOptions) => Promise<any> | any
 
 async function main () {
-  const conf = (Bun.env) as {
+  const conf = (globalThis.Bun ? Bun.env: load()) as {
     MATRIX_USER_ID: string;
     MATRIX_ACCESS_TOKEN: string;
     MATRIX_HOME_SERVER: string;
