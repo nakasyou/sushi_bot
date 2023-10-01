@@ -83,7 +83,7 @@ async function main () {
     
     if (content['m.relates_to'] && content['m.relates_to']['m.in_reply_to']) {
       const eventId = content['m.relates_to']['m.in_reply_to']['event_id']
-      const replyEventData = await fetch(`https://matrix.org/_matrix/client/v3/rooms/${roomId}/event/${eventId}?access_token=${logined.access_token}`).then(res => res.json())
+      const replyEventData = await fetch(`https://matrix.org/_matrix/client/v3/rooms/${roomId}/event/${eventId}?access_token=${conf.MATRIX_ACCESS_TOKEN}`).then(res => res.json())
       
       replyData = {
         target: replyEventData.sender,
