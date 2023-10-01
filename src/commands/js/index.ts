@@ -42,6 +42,7 @@ ${evt.data}
   }
   worker.onerror = (evt) => {
     // エラー
+    console.log(evt)
     worker.terminate()
     opts.reply(`
 エラーが発生しました。
