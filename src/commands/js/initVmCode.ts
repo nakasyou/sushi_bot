@@ -1,6 +1,8 @@
 const initVmCode = `
-import { stringify } from "javascript-stringify";
-const end = (data) => postMessage(stringify(data, null, 2));
+const end = (...data) => {
+  console.log(...data);
+  close();
+};
 `.replaceAll("\n", "")
 
 export default initVmCode
