@@ -12,7 +12,7 @@ const makequote = (async (opts) => {
 
   const profileInfo = await client.getProfileInfo(opts.replyData.target)
 
-  const avatarUrl = client.mxcUrlToHttp(profile.avatar_url, 600, 600) // アバターのHTTP URL
+  const avatarUrl = client.mxcUrlToHttp(profileInfo.avatar_url, 600, 600) // アバターのHTTP URL
   const avatar = loadImage(avatarUrl)
 
   // 背景の描画
@@ -73,7 +73,7 @@ const makequote = (async (opts) => {
   ctx.font = "30px sans-serif";
   ctx.fillStyle = '#bbb'
   ctx.fillText(reply.target, 900, 550);
-  const url = canvas.toDataURL();
+  const url = canvas.toDataURL()
 
   const pngData: Uint8Array = await canvas.encode('png') // Uint8Array
   
