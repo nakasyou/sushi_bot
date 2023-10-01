@@ -15,13 +15,15 @@ export interface CommandOptions {
 export type Command = (opts: CommandOptions) => Promise<any> | any
 
 async function main () {
-  const conf = (globalThis.Bun ? Bun.env: load()) as {
+  const conf = (globalThis.Bun ? Bun.env: load({
+    export: true,
+  })) as {
     MATRIX_USER_ID: string;
     MATRIX_ACCESS_TOKEN: string;
     MATRIX_HOME_SERVER: string;
     MATRIX_DEVICE_ID: string;
   };
-  
+  console.log(conf)
   const client = sdk.createClient({
     baseUrl: "https://" + conf.MATRIX_HOME_SERVER,
     accessToken: conf.MATRIX_ACCESS_TOKEN,
