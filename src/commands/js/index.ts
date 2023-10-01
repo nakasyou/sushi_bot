@@ -17,7 +17,7 @@ const js = (async (opts) => {
   /**
    * 実行するコード
    */
-  const code = (initVmCode + "\n" + bodyCode).replaceAll("'", "\\'")
+  const code = (initVmCode + "\n" + bodyCode)
 
   const path = `/tmp/${crypto.randomUUID()}.ts`
   await Deno.writeTextFile(path, code)
