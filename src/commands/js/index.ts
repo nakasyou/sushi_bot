@@ -23,8 +23,10 @@ const js = (async (opts) => {
   const process = evalCommand.spawn()
   
   const status = await process.status
-  
+
+    console.log(process.stdout)
   const resultText = await new Response(process.stdout).text()
+
   if (status.success) {
 
     opts.reply(`コードの実行に成功しました!
