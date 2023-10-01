@@ -18,8 +18,15 @@ const js = (async (opts) => {
    */
   const code = initVmCode + "\n" + bodyCode
 
-  const result = Bun.spawn(['deno', 'eval', '--node-modules-dir=false', 'console.log("a")'])
-  console.log(await new Response(result.stdout).text())
+  const blobCode: Blob = new Blob([code], {
+    type: 'text/javascript'
+  })
+  const codeUrl = URL.createObjectURL(blobCode)
+  
+  const worker = new Worker(codeUrl)
+  worker.onmessage = (data) => {
+    console.log(data)
+  }
 }) satisfies Command
 
 export default js

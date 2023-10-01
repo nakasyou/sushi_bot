@@ -23,7 +23,7 @@ async function main () {
     MATRIX_HOME_SERVER: string;
     MATRIX_DEVICE_ID: string;
   };
-  console.log(conf)
+
   const client = sdk.createClient({
     baseUrl: "https://" + conf.MATRIX_HOME_SERVER,
     accessToken: conf.MATRIX_ACCESS_TOKEN,
