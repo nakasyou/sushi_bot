@@ -19,7 +19,10 @@ const js = (async (opts) => {
    */
   const code = (initVmCode + "\n" + bodyCode).replaceAll("'", "\\'")
 
-  const result = $`echo ${code} | deno run -`.stdout("piped")
+  const path = `/tmp/${crypto.randomUUID}.ts`
+  await Deno.writeTextFile(path, code)
+
+  const result = $`deno run ${path}`.stdout("piped")
     .stderr("piped");
   
   const stdoutText = result.stdout //await new Response(process.stdout).text()
