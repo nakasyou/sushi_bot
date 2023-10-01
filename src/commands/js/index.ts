@@ -20,6 +20,7 @@ const js = (async (opts) => {
   const evalCommand = new Deno.Command('deno', {
     args: ['eval', code],
     stdout: 'piped',
+    stderr: 'piped',
   })
   const process = evalCommand.spawn()
   
