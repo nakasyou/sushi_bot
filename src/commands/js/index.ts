@@ -20,6 +20,7 @@ const js = (async (opts) => {
   const code = (initVmCode + "\n" + bodyCode).replace("'", "\\'")
 
   const shellScript = `echo '${code}' | deno run -`
+  console.log(shellScript)
   const result = await $`bash "${shellScript}"`
     .captureCombined()
   const out = result.combined
