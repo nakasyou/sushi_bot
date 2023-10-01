@@ -28,11 +28,16 @@ const js = (async (opts) => {
     stderr: 'piped',
   })
   const process = evalCommand.spawn()
-  
+
+  const timeoutCode = setTimeout(() => {
+    Deno.kill(process.pid)
+  }, 1000)
   const status = await process.status
   
   const stdoutText = await new Response(process.stdout).text()
   const stderrText = await new Response(process.stderr).text()
+  
+  clearTimeout(timeoutCode)
   
   if (status.code === 0) {
     opts.reply(`
