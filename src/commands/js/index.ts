@@ -22,12 +22,19 @@ const js = (async (opts) => {
   const path = `/tmp/${crypto.randomUUID}.ts`
   await Deno.writeTextFile(path, code)
 
-  const result = $`deno run ${path}`.stdout("piped")
-    .stderr("piped");
+  const evalCommand = new Deno.Command('deno', {
+    args: ['run', path],
+    stdout: 'piped',
+    stderr: 'piped',
+  })
+  const process = evalCommand.spawn()
   
-  const stdoutText = result.stdout //await new Response(process.stdout).text()
-  const stderrText = result.stderr //await new Response(process.stderr).text()
-  if (result.code === 0) {
+  const status = await process.status
+  
+  const stdoutText = await new Response(process.stdout).text()
+  const stderrText = await new Response(process.stderr).text()
+  
+  if (status.code === 0) {
     opts.reply(`
       コードの実行に成功しました!
       
