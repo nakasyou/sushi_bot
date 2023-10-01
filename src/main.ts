@@ -14,6 +14,7 @@ interface ReplyData {
 }
 export interface CommandOptions {
   reply(text: string, opts?: sdk.MatrixEvent): Promise<void>
+  imageReply (imageUrl: string, opts?: sdk.MatrixEvent): Promise<void>
   rawMessage: string
   message: string
   client: sdk.MatrixClient
@@ -137,8 +138,14 @@ async function main () {
           ...defaultContent,
           ...opts
         }
-        console.log(sendContent)
         sendMessage(roomId, sendContent)
+      },
+      imageReply: async (imageUrl, opts) => {
+        client.sendImageMessage(roomId, imageUrl, {
+          w: opts.w,
+          h: opts.h,
+          mimetype: opts.mimetype
+        }, '')
       },
       rawMessage,
       message,
