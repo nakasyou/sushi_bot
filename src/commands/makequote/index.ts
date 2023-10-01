@@ -81,7 +81,7 @@ const makequote = (async (opts) => {
     type: 'image/png',
     name: 'image.png'
   })
-  console.log(GlobalFonts.families)
+
   opts.imageReply(uploaded.content_uri, {
     w: 1200,
     h: 600,
