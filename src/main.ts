@@ -133,10 +133,12 @@ async function main () {
           formatted_body: marked.parse(text || ''),
           format: "org.matrix.custom.html",
         }
-        sendMessage(roomId, {
+        const sendContent = {
           ...defaultContent,
           ...opts
-        })
+        }
+        console.log(sendContent)
+        sendMessage(roomId, sendContent)
       },
       rawMessage,
       message,
