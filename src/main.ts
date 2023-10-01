@@ -66,7 +66,8 @@ async function main () {
     if (event.getType() !== "m.room.message") {
       return; // only print messages
     }
-    const rawMessage: string = event.getContent().body;
+    const content = event.getContent()
+    const rawMessage: string = content.body;
     const roomId: string = room.roomId;
     
     let replyData: ReplyData | undefined
