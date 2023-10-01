@@ -8,11 +8,16 @@ import echo from './commands/echo.ts'
 import js from './commands/js/index.ts'
 import makequote from './commands/makequote/index.ts'
 
+interface ReplyData {
+  userId: string
+  replyContent: sdk.IContent
+}
 export interface CommandOptions {
   reply(text: string, opts?: sdk.MatrixEvent): Promise<void>
   rawMessage: string
   message: string
   client: sdk.MatrixClient
+  replyData?: ReplyData
 }
 export type Command = (opts: CommandOptions) => Promise<any> | any
 
@@ -63,28 +68,34 @@ async function main () {
     }
     const rawMessage: string = event.getContent().body;
     const roomId: string = room.roomId;
-    const reply = {
-      target: "",
-      msg: "",
-    };
+    
+    let replyData: ReplyData | undefined
     let message = rawMessage;
-  
-    if ((/^> <@.+>.*$/).test(rawMessage.split("\n")[0])) {
-      const target = rawMessage.split("\n")[0].match(/<@.+:.+>/)![0].slice(1, -1);
-      const msgLines = [];
-      let quoteLines = 0;
-      for (
-        const line of rawMessage.replace(" <" + target + ">", "").split("\n")
-      ) {
-        if (line[0] !== ">") {
+    
+    if (content['m.relates_to'] && content['m.relates_to']['m.in_reply_to']) {
+      const eventId = content['m.relates_to']['m.in_reply_to']['event_id']
+      const replyEventData = await fetch(`https://matrix.org/_matrix/client/v3/rooms/${roomId}/event/${eventId}?access_token=${logined.access_token}`).then(res => res.json())
+      
+      replyData = {
+        target: replyEventData.sender,
+        content: replyEventData.content
+      }
+    }
+
+    if ((/^> <@.+>.*$/).test(rawMessage.split('\n')[0])) {
+      const target = rawMessage.split('\n')[0].match(/<@.+:.+>/)[0].slice(1,-1)
+      const msgLines = []
+      let quoteLines = 0
+      for (const line of rawMessage.replace(' <' + target + '>', '').split('\n')) {
+        if (line[0] !== '>') {
           break;
         }
-        quoteLines++;
-        msgLines.push(line.slice(2));
+        quoteLines ++
+        msgLines.push(line.slice(2))
       }
-      reply.target = target;
-      reply.msg = msgLines.join("\n");
-      message = message.split("\n").slice(quoteLines + 1).join("\n");
+      //reply.target = target
+      //reply.msg = msgLines.join('\n')
+      message = message.split('\n').slice(quoteLines + 1).join('\n')
     }
     
     if (message[0] !== "?") {
@@ -117,6 +128,7 @@ async function main () {
       rawMessage,
       message,
       client,
+      replyData,
     })
     return
     switch (message.slice(1).split(/[ \n]/g)[0]) {
