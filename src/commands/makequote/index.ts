@@ -82,7 +82,6 @@ const makequote = (async (opts) => {
     name: 'image.png'
   })
 
-  opts.reply(uploaded.content_uri)
   opts.imageReply(uploaded.content_uri, {
     w: 1200,
     h: 600,
