@@ -10,7 +10,9 @@ const logined = await fetch("https://matrix.org/_matrix/client/r0/login", {
 if ('error' in logined) {
   throw new Error("ログインに失敗しました")
 }
-Bun.write('./.env', `
+const write = globalThis.Bun ? globalThis.Bun.write : Deno.writeTextFile
+
+write('./.env', `
 MATRIX_USER_ID=${logined.user_id}
 MATRIX_ACCESS_TOKEN=${logined.access_token}
 MATRIX_HOME_SERVER=${logined.home_server}

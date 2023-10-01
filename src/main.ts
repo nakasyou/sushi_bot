@@ -1,11 +1,11 @@
 import * as sdk from "matrix-js-sdk";
 import * as marked from 'marked'
 
-import omikuji from './commands/omikuji'
-import time from './commands/time'
-import wp from './commands/wp'
-import echo from './commands/echo'
-import js from './commands/js'
+import omikuji from './commands/omikuji.ts'
+import time from './commands/time.ts'
+import wp from './commands/wp.ts'
+import echo from './commands/echo.ts'
+import js from './commands/js/index.ts'
 
 export interface CommandOptions {
   reply(text: string, opts?: sdk.MatrixEvent): Promise<void>
