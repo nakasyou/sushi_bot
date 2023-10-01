@@ -17,12 +17,16 @@ const js = (async (opts) => {
   /**
    * 実行するコード
    */
-  const code = (initVmCode + "\n" + bodyCode)
+  const code = (initVmCode + "\n" + bodyCode).replace("'", "\\'")
 
-  const path = `/tmp/${crypto.randomUUID()}.ts`
+  const shellScript = `echo '${code}' | deno run -`
+  const result = await $`bash "${shellScript}"`
+    .captureCombined()
+  const out = result.combined
+  /*const path = `/tmp/${crypto.randomUUID()}.ts`
   await Deno.writeTextFile(path, code)
 
-  const evalCommand = new Deno.Command('deno', {
+const evalCommand = new Deno.Command('deno', {
     args: ['run', path],
     stdout: 'piped',
     stderr: 'piped',
@@ -38,14 +42,14 @@ const js = (async (opts) => {
   const stderrText = await new Response(process.stderr).text()
   
   clearTimeout(timeoutCode)
-  
-  if (status.code === 0) {
+  */
+  if (result.code === 0) {
     opts.reply(`
       コードの実行に成功しました!
       
       Result:
       \`\`\`js
-      ${stdoutText}
+      ${out}
       \`\`\`
     `.slice(1, -1).split('\n').map(line => line.slice(6)).join('\n'))
   } else {
@@ -54,7 +58,7 @@ const js = (async (opts) => {
       コードの実行に失敗しました...
       Error:
       \`\`\`
-      ${stderrText}
+      ${out}
       \`\`\`
     `.slice(1, -1).split('\n').map(line => line.slice(6)).join('\n'))
   }
