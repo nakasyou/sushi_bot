@@ -18,7 +18,7 @@ const js = (async (opts) => {
   /**
    * 実行するコード
    */
-  const code = (initVmCode + "\n" + bodyCode).replace("'", "\\'")
+  const code = (initVmCode + "\n" + bodyCode)
 
   const codePath = `/tmp/${crypto.randomUUID()}.ts`
 
