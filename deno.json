@@ -4,7 +4,9 @@
     "login": "deno run --allow-write --allow-net ./scripts/login.ts"
   },
   "imports": {
-    "std/": "https://deno.land/std@0.203.0/"
+    "std/": "https://deno.land/std@0.203.0/",
+    "matrix-js-sdk": "npm:matrix-js-sdk",
+    "marked": "npm:marked"
   },
   "nodeModulesDir": false
 }
