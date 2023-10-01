@@ -18,7 +18,8 @@ const js = (async (opts) => {
   const code = initVmCode + "\n" + bodyCode
 
   const evalCommand = new Deno.Command('deno', {
-    args: ['eval', code]
+    args: ['eval', code],
+    stdout: 'piped',
   })
   const process = evalCommand.spawn()
   
