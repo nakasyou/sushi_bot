@@ -23,9 +23,15 @@ const js = (async (opts) => {
   const process = evalCommand.spawn()
   
   const status = await process.status
-
+  
+  const resultText = await new Response(process.stdout).text()
   if (status.success) {
-    opts.reply('成功!')
+
+    opts.reply(`コードの実行に成功しました!
+Result:
+\`\`\`js
+${resultText}
+\`\`\``)
   }
 }) satisfies Command
 
