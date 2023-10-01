@@ -72,6 +72,8 @@ async function main () {
     let replyData: ReplyData | undefined
     let message = rawMessage;
     
+    console.log(0)
+    
     if (content['m.relates_to'] && content['m.relates_to']['m.in_reply_to']) {
       const eventId = content['m.relates_to']['m.in_reply_to']['event_id']
       const replyEventData = await fetch(`https://matrix.org/_matrix/client/v3/rooms/${roomId}/event/${eventId}?access_token=${logined.access_token}`).then(res => res.json())
@@ -97,12 +99,12 @@ async function main () {
       //reply.msg = msgLines.join('\n')
       message = message.split('\n').slice(quoteLines + 1).join('\n')
     }
-    
+    console.log(1)
     if (message[0] !== "?") {
       return;
     }
     const command = message.slice(1).split(/[ \n]/g)[0]
-
+    console.log(command, 2)
     const commands = {
       omikuji,
       time,
