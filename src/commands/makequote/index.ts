@@ -45,7 +45,7 @@ const makequote = (async (opts) => {
   let y = 0
   ctx.textAlign = "center"
   const charDatas = []
-  for (const char of reply.msg) {
+  for (const char of opts.replyData.content.body) {
     const charSize = ctx.measureText(char)
     if (x + charSize.width > 550) {
       x = 0
@@ -68,11 +68,11 @@ const makequote = (async (opts) => {
   // 名前
   ctx.textAlign = "center"
   ctx.font = "italic 40px sans-serif";
-  ctx.fillText('-' + displayname, 900, 500);
+  ctx.fillText('-' + profileInfo.displayname, 900, 500);
   // ユーザーID
   ctx.font = "30px sans-serif";
   ctx.fillStyle = '#bbb'
-  ctx.fillText(reply.target, 900, 550);
+  ctx.fillText(opts.replyData.target, 900, 550);
   const url = canvas.toDataURL()
 
   const pngData: Uint8Array = await canvas.encode('png') // Uint8Array
