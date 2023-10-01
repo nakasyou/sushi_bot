@@ -23,7 +23,10 @@ const js = (async (opts) => {
   })
   const codeUrl = URL.createObjectURL(blobCode)
   
-  const worker = new Worker(codeUrl)
+  const worker = new Worker(codeUrl, {
+    deno: true,
+    type: 'module',
+  })
   worker.onmessage = (data) => {
     console.log(data)
   }
