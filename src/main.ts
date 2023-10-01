@@ -127,12 +127,16 @@ async function main () {
     const commandFunc = commands[(command as keyof typeof commands)]
     commandFunc({
       reply: async (text, opts) => {
-        sendMessage(roomId, {
+        const defaultContent = {
           msgtype: "m.text",
           body: text,
           formatted_body: marked.parse(text || ''),
           format: "org.matrix.custom.html",
-        }, opts)
+        }
+        sendMessage(roomId, {
+          ...defaultContent,
+          ...opts
+        })
       },
       rawMessage,
       message,
