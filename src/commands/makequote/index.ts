@@ -83,16 +83,10 @@ const makequote = (async (opts) => {
   })
 
   opts.reply(uploaded.content_uri)
-  opts.reply('Image', {
-    "info": {
-      "h": 600,
-      "mimetype": "image/png",
-      "w": 1200
-    },
-    "msgtype": "m.image",
-    "url": uploaded.content_uri,
-    formatted_body: null,
-    format: null,
+  opts.imageReply(uploaded.content_uri, {
+    w: 1200,
+    h: 600,
+    mimetype: 'image/png'
   })
 }) satisfies Command
 
