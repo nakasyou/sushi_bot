@@ -15,7 +15,7 @@ export interface CommandOptions {
 export type Command = (opts: CommandOptions) => Promise<any> | any
 
 async function main () {
-  const conf = (globalThis.Bun ? Bun.env: load({
+  const conf = (globalThis.Bun ? Bun.env: await load({
     export: true,
   })) as {
     MATRIX_USER_ID: string;
