@@ -130,9 +130,9 @@ async function main () {
         sendMessage(roomId, {
           msgtype: "m.text",
           body: text,
-          formatted_body: marked.parse(text),
+          formatted_body: marked.parse(text || ''),
           format: "org.matrix.custom.html",
-        })
+        }, opts)
       },
       rawMessage,
       message,
