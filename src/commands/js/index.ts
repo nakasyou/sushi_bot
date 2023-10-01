@@ -26,7 +26,7 @@ const js = (async (opts) => {
   const status = await process.status
   
   const stdoutText = await new Response(process.stdout).text()
-
+  const stderrText = await new Response(process.stderr).text()
   if (status.success) {
     opts.reply(`コードの実行に成功しました!
 
@@ -39,8 +39,8 @@ ${stdoutText}
     opts.reply(`コードの実行に失敗しました...
     
 Error:
-\`\`\`js
-${stdoutText}
+\`\`\`
+${stderrText}
 \`\`\``)
   }
 }) satisfies Command
