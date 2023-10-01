@@ -90,7 +90,9 @@ const makequote = (async (opts) => {
       "w": 1200
     },
     "msgtype": "m.image",
-    "url": uploaded.content_uri
+    "url": uploaded.content_uri,
+    formatted_body: null,
+    format: null,
   })
 }) satisfies Command
 
