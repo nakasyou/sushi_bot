@@ -20,7 +20,7 @@ const makequote = (async (opts) => {
   ctx.fillRect(0, 0, 1200, 600)
 
   // アバターの描画
-  ctx.drawImage(image, 0, 0, 600, 600)
+  ctx.drawImage(avatar, 0, 0, 600, 600)
 
   // アバターをそれっぽく
   const startR = 500
