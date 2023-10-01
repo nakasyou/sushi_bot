@@ -18,6 +18,12 @@ export interface CommandOptions {
   message: string
   client: sdk.MatrixClient
   replyData?: ReplyData
+  conf: {
+    MATRIX_USER_ID: string;
+    MATRIX_ACCESS_TOKEN: string;
+    MATRIX_HOME_SERVER: string;
+    MATRIX_DEVICE_ID: string;
+  }
 }
 export type Command = (opts: CommandOptions) => Promise<any> | any
 
@@ -132,6 +138,7 @@ async function main () {
       message,
       client,
       replyData,
+      conf,
     })
     return
     switch (message.slice(1).split(/[ \n]/g)[0]) {
