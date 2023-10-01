@@ -19,7 +19,7 @@ const js = (async (opts) => {
    */
   const code = (initVmCode + "\n" + bodyCode).replaceAll("'", "\\'")
 
-  const path = `/tmp/${crypto.randomUUID}.ts`
+  const path = `/tmp/${crypto.randomUUID()}.ts`
   await Deno.writeTextFile(path, code)
 
   const evalCommand = new Deno.Command('deno', {
