@@ -1,4 +1,5 @@
-const logined = await fetch("https://matrix.org/_matrix/client/r0/login", {
+const homeServer = prompt('Home Server Host (e.g.: matrix.org)')
+const logined = await fetch(`https://${homeServer}/_matrix/client/r0/login`, {
   method: "POST",
   body: JSON.stringify({
     type: "m.login.password",
