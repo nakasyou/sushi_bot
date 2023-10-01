@@ -6,7 +6,8 @@
   "imports": {
     "std/": "https://deno.land/std@0.203.0/",
     "matrix-js-sdk": "npm:matrix-js-sdk",
-    "marked": "npm:marked"
+    "marked": "npm:marked",
+    "javascript-stringify": "npm:javascript-stringify"
   },
   "nodeModulesDir": false
 }
