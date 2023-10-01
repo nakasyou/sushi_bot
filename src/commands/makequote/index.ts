@@ -77,7 +77,7 @@ const makequote = (async (opts) => {
 
   const pngData: Uint8Array = await canvas.encode('png') // Uint8Array
   
-  const uploaded = client.uploadContent(pngData, {
+  const uploaded = await client.uploadContent(pngData, {
     type: 'image/png',
     name: 'image.png'
   })
