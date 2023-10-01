@@ -12,6 +12,7 @@ export interface CommandOptions {
   reply(text: string, opts?: sdk.MatrixEvent): Promise<void>
   rawMessage: string
   message: string
+  client: sdk.MatrixClient
 }
 export type Command = (opts: CommandOptions) => Promise<any> | any
 
@@ -115,6 +116,7 @@ async function main () {
       },
       rawMessage,
       message,
+      client,
     })
     return
     switch (message.slice(1).split(/[ \n]/g)[0]) {
