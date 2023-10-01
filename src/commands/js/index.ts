@@ -1,4 +1,3 @@
-import { optionalCallExpression } from '@babel/types'
 import type { Command } from '../../main.ts'
 import initVmCode from './initVmCode.ts'
 
