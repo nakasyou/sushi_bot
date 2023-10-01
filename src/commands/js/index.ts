@@ -31,8 +31,13 @@ const js = (async (opts) => {
     type: 'module',
   })
   worker.onmessage = (evt) => {
+    // End
     worker.terminate()
-    opts.reply(`実行が完了しました！\n\nResult:\`\`\`json\n${evt.data}\`\`\``)
+    opts.reply(`実行が完了しました！
+Result:
+\`\`\`json
+${evt.data}
+\`\`\``)
   }
   worker.onerror = (evt) => {
     // エラー
