@@ -1,8 +1,8 @@
+import { optionalCallExpression } from '@babel/types'
 import type { Command } from '../../main.ts'
 import initVmCode from './initVmCode.ts'
 
 const js = (async (opts) => {
-
   /**
    * メッセージの行
    */
@@ -24,11 +24,29 @@ const js = (async (opts) => {
   const codeUrl = URL.createObjectURL(blobCode)
   
   const worker = new Worker(codeUrl, {
-    deno: true,
+    deno: {
+      permissions: {
+
+      }
+    },
     type: 'module',
   })
-  worker.onmessage = (data) => {
-    console.log(data)
+  worker.onmessage = (evt) => {
+    worker.terminate()
+    opts.reply(`実行が完了しました！\n\nResult:\`\`\`json\n${evt.data}\`\`\``)
+  }
+  worker.onerror = (evt) => {
+    // エラー
+    worker.terminate()
+    opts.reply(`
+エラーが発生しました。
+\`${evt.message} ( line ${evt.lineno - 1}, col ${evt.colno})\`
+\`\`\`javascript
+${evt.lineno > 2 ? code.split('\n')[evt.lineno - 2] : ''}
+${code.split('\n')[evt.lineno - 1]}
+${[...Array(evt.colno)].map(() => '').join(' ')}^ここ
+${evt.lineno < code.split('\n').length ? code.split('\n')[evt.lineno] : ''}
+\`\`\``)
   }
 }) satisfies Command
 
