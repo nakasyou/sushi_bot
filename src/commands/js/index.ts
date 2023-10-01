@@ -17,45 +17,15 @@ const js = (async (opts) => {
    */
   const code = initVmCode + "\n" + bodyCode
 
-  const blobCode: Blob = new Blob([code], {
-    type: 'text/javascript'
+  const evalCommand = Deno.Command('deno', {
+    args: ['eval', code]
   })
-  const codeUrl = URL.createObjectURL(blobCode)
-  try {
-    const worker = new Worker(codeUrl, {
-      deno: {
-        permissions: {
+  const process = evalCommand.spawn()
+  
+  const status = await process.status
 
-        },
-        namespace: true
-      },
-      type: 'module',
-    })
-    worker.onmessage = (evt) => {
-      // End
-      worker.terminate()
-      opts.reply(`実行が完了しました！
-Result:
-\`\`\`json
-${evt.data}
-\`\`\``)
-    }
-    worker.onerror = (evt) => {
-      // エラー
-      console.log(evt)
-      worker.terminate()
-      opts.reply(`
-エラーが発生しました。
-\`${evt.message} ( line ${evt.lineno - 1}, col ${evt.colno})\`
-\`\`\`javascript
-${evt.lineno > 2 ? code.split('\n')[evt.lineno - 2] : ''}
-${code.split('\n')[evt.lineno - 1]}
-${[...Array(evt.colno)].map(() => '').join(' ')}^ここ
-${evt.lineno < code.split('\n').length ? code.split('\n')[evt.lineno] : ''}
-\`\`\``)
-    }
-  } catch (error) {
-    console.warn(error)
+  if (status.success) {
+    opts.reply('成功!')
   }
 }) satisfies Command
 
