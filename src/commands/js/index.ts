@@ -1,7 +1,8 @@
 import type { Command } from '../../main.ts'
 import initVmCode from './initVmCode.ts'
 
-import $ from 'dax'
+import $, { CommandResult } from 'dax'
+import { tablate } from "../../utils/tablate.ts"
 
 const js = (async (opts) => {
   /**
@@ -19,49 +20,43 @@ const js = (async (opts) => {
    */
   const code = (initVmCode + "\n" + bodyCode).replace("'", "\\'")
 
-  const shellScript = `echo '${code}' | deno run -`
-  console.log(shellScript)
-  const result = await $`bash "${shellScript}"`
+  const codePath = `/tmp/${crypto.randomUUID()}.ts`
+
+  await Deno.writeTextFile(codePath, code)
+
+  const result: CommandResult = await $`deno run ${codePath}`
     .captureCombined()
-  const out = result.combined
-  /*const path = `/tmp/${crypto.randomUUID()}.ts`
-  await Deno.writeTextFile(path, code)
-
-const evalCommand = new Deno.Command('deno', {
-    args: ['run', path],
-    stdout: 'piped',
-    stderr: 'piped',
-  })
-  const process = evalCommand.spawn()
-
-  const timeoutCode = setTimeout(() => {
-    Deno.kill(process.pid)
-  }, 1000)
-  const status = await process.status
-  
-  const stdoutText = await new Response(process.stdout).text()
-  const stderrText = await new Response(process.stderr).text()
-  
-  clearTimeout(timeoutCode)
-  */
+    .timeout(1000)
+    .noThrow()
+  const maxResultLength = 10000
+  const noEscapeResultText = result.combined.replace(/\u001b\[.{2,3}/g, '')
+  const resultText = noEscapeResultText.slice(-maxResultLength)
   if (result.code === 0) {
-    opts.reply(`
+    opts.reply(tablate(6)`
       コードの実行に成功しました!
       
       Result:
       \`\`\`js
-      ${out}
+      ${resultText}
       \`\`\`
-    `.slice(1, -1).split('\n').map(line => line.slice(6)).join('\n'))
+      ${noEscapeResultText.length > maxResultLength ? '長すぎるため、最初の方は切り捨てられています' : ''}
+    `.slice(1, -1))
+  } else if (result.code === 124) {
+    // タイムアウト
+    opts.reply(tablate(6)`
+      1000ms経過したため、タイムアウトしました
+    `.slice(1, -1))
   } else {
     // エラー
-    opts.reply(`
+    opts.reply(tablate(6)`
       コードの実行に失敗しました...
-      Error:
+
+      出力:
       \`\`\`
-      ${out}
+      ${resultText}
       \`\`\`
-    `.slice(1, -1).split('\n').map(line => line.slice(6)).join('\n'))
+      ${noEscapeResultText.length > maxResultLength ? '長すぎるため、最初の方は切り捨てられています' : ''}
+    `.slice(1, -1))
   }
 }) satisfies Command
 

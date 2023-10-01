@@ -8,7 +8,7 @@
     "matrix-js-sdk": "npm:matrix-js-sdk",
     "marked": "npm:marked",
     "javascript-stringify": "npm:javascript-stringify",
-    "dax": "https://deno.land/x/dax/mod.ts"
+    "dax": "https://deno.land/x/dax@0.35.0/mod.ts"
   },
   "nodeModulesDir": false
 }
