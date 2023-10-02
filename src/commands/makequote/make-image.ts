@@ -75,9 +75,8 @@ export const makeImage = async (init: {
   const xBias = (600 - x) / 2 + 400
   const yBias = (400 - y) / 2 + 20
   for (const lineData of lineDatas) {
-    console.log(0)
     const line = lineData.map((charData) => charData.char).join('')
-    ctx.fillText(line, lineData[0].x + 600, lineData[0].y + 200)
+    ctx.fillText(line, lineData[0].x + 900, lineData[0].y + 200)
   }
 
   // 名前
