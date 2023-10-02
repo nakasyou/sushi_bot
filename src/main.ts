@@ -139,10 +139,10 @@ async function main () {
           ...defaultContent,
           ...opts
         }
-        sendMessage(roomId, sendContent)
+        await sendMessage(roomId, sendContent)
       },
       imageReply: async (imageUrl, opts) => {
-        client.sendImageMessage(roomId, imageUrl, {
+        await client.sendImageMessage(roomId, imageUrl, {
           w: opts.w,
           h: opts.h,
           mimetype: opts.mimetype
