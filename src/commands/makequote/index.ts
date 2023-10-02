@@ -16,7 +16,7 @@ const makequote = (async (opts) => {
 
   const pngData = await makeImage({
     id: opts.replyData.userId,
-    message: opts.message,
+    message: opts.replyData.replyContent.body || 'Unknown',
     name: profileInfo.displayname || 'Anonymous',
     icon: avatar
   })
