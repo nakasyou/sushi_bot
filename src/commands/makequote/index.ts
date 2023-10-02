@@ -18,7 +18,7 @@ const makequote = (async (opts) => {
     id: opts.replyData.userId,
     message: opts.message,
     name: profileInfo.displayname || 'Anonymous',
-    icon: await loadImage(profileInfo.displayname)
+    icon: avatar
   })
   
   const uploaded = await client.uploadContent(pngData, {
