@@ -6,7 +6,12 @@ export default (props: {
   children: JSX.Element
 }) => {
   const styles: string[] = [...(props.styles || []), `
-
+    .md h1 {
+      font-size: 2em;
+    }
+    .md h2 {
+      font-size: 1.5em;
+    }
   `]
   return <Base title={props.title} styles={styles} >
     <div class="md mx-5">
