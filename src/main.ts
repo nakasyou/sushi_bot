@@ -14,7 +14,11 @@ interface ReplyData {
 }
 export interface CommandOptions {
   reply(text: string, opts?: sdk.MatrixEvent): Promise<void>
-  imageReply (imageUrl: string, opts?: sdk.MatrixEvent): Promise<void>
+  imageReply (imageUrl: string, opts?: {
+    w: number
+    h: number
+    mimetype: string
+  }): Promise<void>
   rawMessage: string
   message: string
   client: sdk.MatrixClient
@@ -74,6 +78,9 @@ async function main () {
       return; // only print messages
     }
     const content = event.getContent()
+    if (!content.body) {
+      return
+    }
     const rawMessage: string = content.body;
     const roomId: string = room.roomId;
     
@@ -87,8 +94,8 @@ async function main () {
       const replyEventData = await fetch(`https://matrix.org/_matrix/client/v3/rooms/${roomId}/event/${eventId}?access_token=${conf.MATRIX_ACCESS_TOKEN}`).then(res => res.json())
       
       replyData = {
-        target: replyEventData.sender,
-        content: replyEventData.content
+        userId: replyEventData.sender as string,
+        replyContent: replyEventData.content as sdk.IContent
       }
     }
 
@@ -103,16 +110,12 @@ async function main () {
         quoteLines ++
         msgLines.push(line.slice(2))
       }
-      //reply.target = target
-      //reply.msg = msgLines.join('\n')
       message = message.split('\n').slice(quoteLines + 1).join('\n')
     }
-    console.log(1)
     if (message[0] !== "?") {
       return;
     }
     const command = message.slice(1).split(/[ \n]/g)[0]
-    console.log(command, 2)
     const commands = {
       omikuji,
       time,
@@ -125,8 +128,8 @@ async function main () {
     if (!(command in commands)) {
       return // コマンドが存在しない
     }
-
-    const commandFunc = commands[(command as keyof typeof commands)]
+    const commandName = command as keyof typeof commands
+    const commandFunc: Command = commands[commandName]
     commandFunc({
       reply: async (text, opts) => {
         const defaultContent = {

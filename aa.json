@@ -1,0 +1,677 @@
+[
+  {
+    "family": "Droid Sans Fallback",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Liberation Sans",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "Liberation Serif",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Liberation Mono",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "Piboto",
+    "styles": [
+      {
+        "weight": 300,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 300,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 100,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 100,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Piboto Condensed",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "condensed",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "condensed",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "condensed",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "condensed",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "PibotoLt",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Quicksand Medium",
+    "styles": [
+      {
+        "weight": 500,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Quicksand Light",
+    "styles": [
+      {
+        "weight": 300,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Quicksand",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Noto Mono",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Noto Sans Mono",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "FreeMono",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "oblique"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "oblique"
+      }
+    ]
+  },
+  {
+    "family": "FreeSerif",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "FreeSans",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 600,
+        "width": "normal",
+        "style": "oblique"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "oblique"
+      },
+      {
+        "weight": 600,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "DejaVu Sans",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "DejaVu Serif",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "DejaVu Sans Mono",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Noto Sans Mono CJK JP",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Noto Sans CJK JP",
+    "styles": [
+      {
+        "weight": 350,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 500,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 300,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 900,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 250,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Nimbus Roman",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "URW Bookman",
+    "styles": [
+      {
+        "weight": 600,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 300,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 600,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 300,
+        "width": "normal",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "Nimbus Sans Narrow",
+    "styles": [
+      {
+        "weight": 700,
+        "width": "semi-condensed",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "semi-condensed",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "semi-condensed",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "semi-condensed",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "Nimbus Sans",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "P052",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "C059",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Nimbus Mono PS",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "Z003",
+    "styles": [
+      {
+        "weight": 500,
+        "width": "normal",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "URW Gothic",
+    "styles": [
+      {
+        "weight": 600,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 600,
+        "width": "normal",
+        "style": "italic"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "italic"
+      }
+    ]
+  },
+  {
+    "family": "D050000L",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Standard Symbols PS",
+    "styles": [
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "family": "Cantarell",
+    "styles": [
+      {
+        "weight": 800,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 400,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 700,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 100,
+        "width": "normal",
+        "style": "normal"
+      },
+      {
+        "weight": 300,
+        "width": "normal",
+        "style": "normal"
+      }
+    ]
+  }
+]
