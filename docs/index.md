@@ -1,3 +1,7 @@
+---
+title: お寿司Bot🍣
+layout: mdpage.tsx
+---
 <div align="center">
   <img src="https://emoji2svg.deno.dev/api/🍣" alt="🍣" width="128" height="128">
 
