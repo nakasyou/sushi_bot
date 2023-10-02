@@ -5,7 +5,7 @@ const http = (async (opts) => {
   let url: URL
   try {
     url = new URL(textUrl)
-    if (!['http', 'https'].includes(url.protocol)) {
+    if (!(['http:', 'https:'].includes(url.protocol))) {
       throw new Error()
     }
   } catch (_error) {
