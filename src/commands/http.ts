@@ -21,7 +21,7 @@ const http = (async (opts) => {
     return
   }
 
-  await opts.reply(response.status)
+  await opts.reply(response.status.toString())
 }) satisfies Command
 
 export default http
