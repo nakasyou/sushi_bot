@@ -119,7 +119,8 @@ async function main () {
       wp,
       echo,
       js,
-      makequote
+      makequote,
+      http
     }
     if (!(command in commands)) {
       return // コマンドが存在しない
