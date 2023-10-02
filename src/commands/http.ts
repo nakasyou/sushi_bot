@@ -12,7 +12,12 @@ const http = (async (opts) => {
     await opts.reply("正しいURLを入力してください")
     return
   }
-  const response = await fetch(url)
+  try {
+    const response = await fetch(url)
+  } catch (_error) {
+    await opts.reply('httpリクエストの送信中にエラーが発生しました。正しく名前解決ができなかったり、プロトコルが間違っている可能性があります。')
+  }
+
   await opts.reply(reponse.status)
 }) satisfies Command
 
