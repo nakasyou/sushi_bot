@@ -1,7 +1,7 @@
 import type { Command } from '../main.ts'
 
 const http = (async (opts) => {
-  const textUrl = opts.message.replace('?netinfo ', '')
+  const textUrl = opts.message.replace('?http ', '')
   let url: URL
   try {
     url = new URL(textUrl)
