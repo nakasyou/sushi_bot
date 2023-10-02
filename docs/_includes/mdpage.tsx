@@ -9,7 +9,7 @@ export default (props: {
 
   `]
   return <Base title={props.title} styles={styles} >
-    <div class="md">
+    <div class="md mx-5">
       { props.children }
     </div>
   </Base>
