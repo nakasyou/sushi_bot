@@ -7,7 +7,7 @@ import wp from './commands/wp.ts'
 import echo from './commands/echo.ts'
 import js from './commands/js/index.ts'
 import makequote from './commands/makequote/index.ts'
-
+import http from './commands/http.ts'
 interface ReplyData {
   userId: string
   replyContent: sdk.IContent
@@ -152,6 +152,7 @@ async function main () {
       client,
       replyData,
       conf,
+      http,
     })
     return
     switch (message.slice(1).split(/[ \n]/g)[0]) {
