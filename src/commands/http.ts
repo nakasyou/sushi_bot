@@ -25,6 +25,7 @@ const http = (async (opts) => {
   ### \`${url}\`へのアクセス結果
   - Status
     - Code: \`${response.status.toString()}\`
+    - StatusText: \`${response.statusText}\`
   - Headers:
   \`\`\`
   ${Array.from(response.headers.entries()).map(([key, value]) => `${key}: ${value}`).join('\n')}
