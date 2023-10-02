@@ -14,7 +14,7 @@ const makequote = (async (opts) => {
   const avatarUrl = profileInfo.avatar_url ? client.mxcUrlToHttp(profileInfo.avatar_url, 600, 600): '' // アバターのHTTP URL
   const avatar = await loadImage(avatarUrl)
 
-  const pngData = makeImage({
+  const pngData = await makeImage({
     id: opts.replyData.userId,
     message: opts.message,
     name: profileInfo.displayname || 'Anonymous',
