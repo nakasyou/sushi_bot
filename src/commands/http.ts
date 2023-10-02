@@ -1,6 +1,7 @@
 import type { Command } from '../main.ts'
 
 const http = (async (opts) => {
+  opts.reply(opts.message)
   const textUrl = opts.message.replace('?http ', '')
   let url: URL
   try {
