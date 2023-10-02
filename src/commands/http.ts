@@ -24,10 +24,10 @@ const http = (async (opts) => {
   await opts.reply(tablate(2)`
   ### \`${url}\`へのアクセス結果
   - Status
-    - Code: \`response.status.toString()\`
+    - Code: \`${response.status.toString()}\`
   - Headers:
   \`\`\`
-  ${Array.from(response.entries()).map(([key, value]) => `${key}: ${value}`).join('\n')}
+  ${Array.from(response.headers.entries()).map(([key, value]) => `${key}: ${value}`).join('\n')}
   \`\`\`
   `)
 }) satisfies Command
