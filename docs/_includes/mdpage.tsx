@@ -34,6 +34,12 @@ export default (props: {
       margin-top: 1em;
       margin-bottom: 1em;
     }
+    .md a {
+      text-decoration: underline;
+    }
+    .md a:hover {
+      text-decoration: none;
+    }
   `]
   return <Base title={props.title} styles={styles} >
     <div class="md mx-5">
