@@ -18,6 +18,22 @@ export default (props: {
       font-size: 1.17em;
       font-weight: bolder;
     }
+    .md h4 {
+      font-size: 1em;
+      font-weight: bolder;
+    }
+    .md h5 {
+      font-size: .83em;
+      font-weight: bolder;
+    }
+    .md h6 {
+      font-size: .83em;
+      font-weight: bolder;
+    }
+    .md p {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
   `]
   return <Base title={props.title} styles={styles} >
     <div class="md mx-5">
