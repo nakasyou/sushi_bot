@@ -17,7 +17,7 @@ const wp = (async (opts) => {
       "`というページはWikipediaに存在しませんでした...",
     )
   } else {
-    const result = data.extract.replaceAll("\n", "\n\n");
+    const result = (data.extract || '').replaceAll("\n", "\n\n");
     opts.reply(`### Wikipedia: ${targetWord}\n${result}`);
   }
 }) satisfies Command
